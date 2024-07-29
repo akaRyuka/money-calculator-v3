@@ -10,9 +10,16 @@
 
         body {
             font-family: 'Inter', sans-serif; /* Use Inter font */
-            margin: 20px;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
             background-color: #191919; /* Dark background for the page */
             color: #f5f5f5; /* Light text color */
+        }
+        .container {
+            padding: 20px; /* Add padding inside the container */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the start (left) */
         }
         table {
             width: 100%;
@@ -37,6 +44,7 @@
         }
         .input-row {
             margin-bottom: 10px;
+            width: 100%;
         }
         input[type="number"] {
             padding: 10px;
@@ -45,6 +53,7 @@
             color: #f5f5f5;
             border-radius: 8px; /* Rounded corners for the input */
             outline: none;
+            width: 100%; /* Full width for input */
         }
         button {
             padding: 10px 20px;
@@ -68,33 +77,35 @@
 </head>
 <body>
 
-    <div class="input-row">
-        <input type="number" id="moneyInput" placeholder="Enter amount in JPY" />
-        <button onclick="calculateDivisions()">Calculate</button>
-    </div>
+    <div class="container">
+        <div class="input-row">
+            <input type="number" id="moneyInput" placeholder="Enter amount in JPY" />
+            <button onclick="calculateDivisions()">Calculate</button>
+        </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Budget</th>
-                <th>Amount</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Per Month</td>
-                <td id="monthlyResult"><span class="result">0</span><span class="yen">円</span></td>
-            </tr>
-            <tr>
-                <td>Per Week</td>
-                <td id="weeklyResult"><span class="result">0</span><span class="yen">円</span></td>
-            </tr>
-            <tr>
-                <td>Per Day</td>
-                <td id="dailyResult"><span class="result">0</span><span class="yen">円</span></td>
-            </tr>
-        </tbody>
-    </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Budget</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Per Month</td>
+                    <td id="monthlyResult"><span class="result">0</span><span class="yen">円</span></td>
+                </tr>
+                <tr>
+                    <td>Per Week</td>
+                    <td id="weeklyResult"><span class="result">0</span><span class="yen">円</span></td>
+                </tr>
+                <tr>
+                    <td>Per Day</td>
+                    <td id="dailyResult"><span class="result">0</span><span class="yen">円</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <script>
         function formatNumber(num) {
@@ -117,6 +128,10 @@
             document.getElementById('dailyResult').innerHTML = '<span class="result">' + formatNumber(perDay) + '</span><span class="yen">円</span>';
         }
     </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
